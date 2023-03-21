@@ -8,4 +8,4 @@ boto3
 textract-trp
 gunicorn
 Werkzeug
-
+openpyxl
