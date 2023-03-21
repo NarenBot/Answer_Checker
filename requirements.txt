@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+requests
+Flask
+Flask-Cors
+boto3
+textract-trp
+gunicorn
+Werkzeug
+
