@@ -9,9 +9,9 @@ from utils import inputDataExcel
 
 app = Flask(__name__)
 
-ACCESS_KEY_ID = "AKIAQULFVLB7QTQSS6NH"
-ACCESS_SECRET_KEY = "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"
-BUCKET_NAME = "narenineuron"
+ACCESS_KEY_ID = "AKIAVGA24RUMU6NRWUOA"
+ACCESS_SECRET_KEY = "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"
+BUCKET_NAME = "krantieducation"
 
 s3 = boto3.client(
     "s3",
