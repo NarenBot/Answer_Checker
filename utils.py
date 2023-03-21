@@ -9,7 +9,7 @@ from openpyxl import Workbook, load_workbook
 
 def inputDataExcel(answer, id):
     countWords = len(answer)
-    wb = load_workbook("Answers-Hint.xlsx")
+    wb = load_workbook("Answers-Report.xlsx")
     ws = wb.active
     ws["E" + str(id)].value = answer
     keywords = ws["D" + str(id)].value
@@ -34,7 +34,7 @@ def inputDataExcel(answer, id):
     totalMarks = ws["F" + str(id)].value + ws["G" + str(id)].value
     ws["H" + str(id)].value = totalMarks
 
-    wb.save("Answers-Hint.xlsx")
+    wb.save("Answers-Report.xlsx")
 
 
 # inputDataExcel(answer=answer, id=answer[:1])
