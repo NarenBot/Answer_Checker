@@ -50,21 +50,22 @@ def upload():
     return render_template("index.html", msg=msg)
 
 
-@app.route("/delete")
+@app.route("/delete", methods=["GET"])
 def delete():
-    objects = s3.list_objects_v2(Bucket=BUCKET_NAME)
-    # print(objects["KeyCount"])
+    if request.method == "GET":
+        objects = s3.list_objects_v2(Bucket=BUCKET_NAME)
+        # print(objects["KeyCount"])
 
-    if objects["KeyCount"] != 0:
-        ls = []
-        for obj in objects["Contents"]:
-            ls.append(obj["Key"])
-        for filename in ls:
-            s3.delete_object(Bucket=BUCKET_NAME, Key=filename)
+        if objects["KeyCount"] != 0:
+            ls = []
+            for obj in objects["Contents"]:
+                ls.append(obj["Key"])
+            for filename in ls:
+                s3.delete_object(Bucket=BUCKET_NAME, Key=filename)
 
-        msg = f"Objects have been deleted!"
-    else:
-        msg = f"Fine! Now you can upload your file."
+            msg = f"Objects have been deleted!"
+        else:
+            msg = f"Fine! Now you can upload your file."
 
     return render_template("index.html", msg=msg)
 
